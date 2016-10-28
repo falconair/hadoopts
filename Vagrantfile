@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "fileserver" do |node|
     node.vm.box = "ubuntu/xenial64"
     node.vm.network "private_network", ip: "172.28.128.2"
-    node.vm.provision "shell", inline: "sudo apt -y install apt-cacher-ng && apt -y install nginx-light"
+    node.vm.provision "shell", path: "bootstrap-fileserver.sh"
   end
 
   #=========Zookeeper machines=========
